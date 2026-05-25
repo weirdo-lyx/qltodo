@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="top-action card">
+    <view>
+      <view class="cozy-title">计划小窝</view>
+      <view class="cozy-subtitle">把长期目标拆成每天都愿意完成的小块。</view>
+    </view>
+    <button class="btn-primary" bindtap="goCreatePlan">创建计划</button>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-state">加载计划中...</view>
+
+  <view wx:elif="{{plans.length}}">
+    <block wx:for="{{plans}}" wx:key="id">
+      <view class="card plan-card">
+        <view class="plan-top" data-id="{{item.id}}" bindtap="goDetail">
+          <view class="plan-title">{{item.title}}</view>
+          <view class="tag {{item.status === 'active' ? 'tag-primary' : 'tag-muted'}}">{{item.statusText}}</view>
+        </view>
+        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">第 {{item.currentDay}} / {{item.totalDays}} 天</view>
+        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">已完成 {{item.completedDays}} 天</view>
+        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">开始日期：{{item.startDate}}</view>
+        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">结束日期：{{item.endDate}}</view>
+        <!-- 删除功能暂时隐藏，等待后端修复 DELETE 接口 -->
+        <!-- <view wx:if="{{item.status !== 'completed'}}" class="plan-actions">
+          <button class="btn-danger btn-sm" data-id="{{item.id}}" catchtap="handleDeletePlan">删除</button>
+        </view> -->
+      </view>
+    </block>
+  </view>
+
+  <view wx:else class="empty-state">
+    <view>还没有计划，先创建一个属于你们的打卡目标吧。</view>
+    <button class="btn-primary empty-btn" bindtap="goCreatePlan">去创建计划</button>
+  </view>
+</view>

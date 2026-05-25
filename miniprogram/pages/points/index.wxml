@@ -1,0 +1,44 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading-state">加载积分数据中...</view>
+
+  <block wx:else>
+    <view class="points-hero card">
+      <view>
+        <view class="cozy-title">积分罐罐</view>
+        <view class="cozy-subtitle">每一次完成，都是往罐子里放一颗糖。</view>
+      </view>
+    </view>
+
+    <view class="summary-grid">
+      <view class="card stat-card">
+        <view class="summary-label">总积分</view>
+        <view class="summary-value primary">{{userInfo ? userInfo.totalPoints : 0}}</view>
+      </view>
+      <view class="card stat-card">
+        <view class="summary-label">今日积分</view>
+        <view class="summary-value">{{todayPoints}}</view>
+      </view>
+    </view>
+
+    <view class="card log-card">
+      <view class="section-title">积分流水</view>
+      <view wx:if="{{logs.length}}">
+        <block wx:for="{{logs}}" wx:key="id">
+          <view class="log-item">
+            <view>
+              <view class="log-reason">{{item.reason}}</view>
+              <view class="log-time">{{item.createdAt}}</view>
+            </view>
+            <view class="log-right">
+              <view class="log-change {{item.changePoints >= 0 ? 'primary' : 'danger'}}">{{item.changePoints >= 0 ? '+' : ''}}{{item.changePoints}}</view>
+              <view class="log-balance">余额 {{item.balanceAfter}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view wx:else class="empty-inline">暂时还没有积分流水</view>
+
+      <button wx:if="{{logs.length && logs.length < total}}" class="btn-secondary more-btn" bindtap="handleLoadMore" loading="{{loadingMore}}">加载更多</button>
+    </view>
+  </block>
+</view>

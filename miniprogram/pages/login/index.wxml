@@ -1,0 +1,19 @@
+<view class="page login-page">
+  <view class="hero card">
+    <view class="hero-copy">
+      <view class="hero-badge">甜甜打卡</view>
+      <view class="hero-title">情侣打卡积分</view>
+      <view class="hero-desc">一起打卡、一起攒积分、把每天的小坚持贴成甜甜的足迹。</view>
+    </view>
+    <view class="hero-bears">
+      <image class="bear-art" src="/assets/bears/bubu-yier-hi.jpeg" mode="aspectFill" />
+    </view>
+  </view>
+
+  <view class="card action-card">
+    <button class="btn-primary login-btn" bindtap="handleMockLoginA" loading="{{loading}}">测试用户A登录</button>
+    <button class="btn-secondary login-btn" bindtap="handleMockLoginB" loading="{{loading}}">测试用户B登录</button>
+    <button class="btn-secondary login-btn" bindtap="handleWxLogin" loading="{{loading}}">微信登录</button>
+    <view class="login-tip">已保留 mock 登录，方便测试两个人绑定流程。</view>
+  </view>
+</view>

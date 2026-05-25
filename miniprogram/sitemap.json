@@ -1,0 +1,4 @@
+{
+  "desc": "情侣打卡积分小程序 sitemap",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

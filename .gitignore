@@ -1,0 +1,13 @@
+# 微信开发者工具个人配置
+project.private.config.json
+
+# macOS 系统文件
+.DS_Store
+
+# 根目录下的临时图片（AI 生成，非项目资源）
+/*.jpeg
+/*.jpg
+/*.png
+
+# node_modules
+node_modules/

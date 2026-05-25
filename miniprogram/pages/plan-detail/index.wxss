@@ -1,0 +1,103 @@
+.header-card {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 6%, rgba(137, 203, 178, 0.25) 0, rgba(137, 203, 178, 0) 28%),
+    linear-gradient(135deg, #fffaf2 0%, #ffece1 100%);
+}
+
+.detail-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.mini-bear {
+  flex: 0 0 104rpx;
+  width: 104rpx;
+  height: 104rpx;
+  overflow: hidden;
+  border: 4rpx solid rgba(255, 255, 255, 0.86);
+  border-radius: 22rpx;
+  box-shadow: 0 10rpx 20rpx rgba(116, 75, 45, 0.12);
+}
+
+.plan-title {
+  font-size: 38rpx;
+  font-weight: 800;
+  color: #4a3528;
+}
+
+.plan-date {
+  margin-top: 12rpx;
+  color: #947b69;
+}
+
+.summary-row {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 32rpx;
+}
+
+.summary-item {
+  flex: 1;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2rpx solid rgba(116, 75, 45, 0.08);
+}
+
+.summary-num {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: #ff7a66;
+}
+
+.summary-label {
+  margin-top: 10rpx;
+  color: #947b69;
+  font-size: 24rpx;
+}
+
+.task-single,
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid rgba(116, 75, 45, 0.08);
+}
+
+.task-done {
+  opacity: 0.56;
+}
+
+.task-main {
+  flex: 1;
+}
+
+.task-points {
+  font-size: 26rpx;
+  color: #947b69;
+}
+
+.task-btn {
+  min-width: 168rpx;
+  margin: 0;
+  padding: 18rpx 24rpx;
+  font-size: 26rpx;
+}
+
+.btn-undo {
+  background: #fff0da;
+  color: #8c5a2e;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  line-height: 1.4;
+}
+
+.danger-zone {
+  margin-top: 24rpx;
+  text-align: center;
+}

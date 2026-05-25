@@ -1,0 +1,62 @@
+.profile-card {
+  overflow: hidden;
+  text-align: center;
+  padding-top: 36rpx;
+  padding-bottom: 48rpx;
+  background:
+    radial-gradient(circle at 14% 14%, rgba(255, 209, 107, 0.24) 0, rgba(255, 209, 107, 0) 26%),
+    linear-gradient(135deg, #fffaf2 0%, #ffece1 100%);
+}
+
+.profile-bears {
+  width: 184rpx;
+  height: 184rpx;
+  margin: 0 auto 20rpx;
+  overflow: hidden;
+  border: 6rpx solid rgba(255, 255, 255, 0.86);
+  border-radius: 28rpx;
+  box-shadow: 0 12rpx 24rpx rgba(116, 75, 45, 0.12);
+}
+
+.avatar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: #fff0da;
+  border: 4rpx solid #ffffff;
+  box-shadow: 0 10rpx 24rpx rgba(116, 75, 45, 0.1);
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52rpx;
+  color: #ce6548;
+  font-weight: 800;
+}
+
+.nickname {
+  margin-top: 24rpx;
+  font-size: 38rpx;
+  font-weight: 800;
+  color: #4a3528;
+}
+
+.points {
+  margin-top: 12rpx;
+  color: #765b49;
+}
+
+.action-card {
+  margin-top: 24rpx;
+}
+
+.action-btn {
+  margin-top: 20rpx;
+}

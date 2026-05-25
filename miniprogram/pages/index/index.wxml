@@ -1,0 +1,73 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading-state">加载今日数据中...</view>
+
+  <block wx:else>
+    <view class="home-hero card">
+      <view>
+        <view class="cozy-title">今天也一起打卡</view>
+        <view class="cozy-subtitle">两只小熊已经坐好，等你们把任务一个个点亮。</view>
+      </view>
+      <view class="home-bears">
+        <image class="bear-art" src="/assets/bears/bubu-yier-field.jpeg" mode="aspectFill" />
+      </view>
+    </view>
+
+    <view class="summary-grid">
+      <view class="summary-card summary-primary">
+        <view class="summary-label">总积分</view>
+        <view class="summary-value">{{todayData ? todayData.totalPoints : 0}}</view>
+      </view>
+      <view class="summary-card card">
+        <view class="summary-label">今日积分</view>
+        <view class="summary-value primary">{{todayData ? todayData.todayPoints : 0}}</view>
+        <view class="summary-date">{{dateLabel}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{todayData && todayData.plans.length}}">
+      <block wx:for="{{todayData.plans}}" wx:key="id" wx:for-item="plan">
+        <view class="card plan-card">
+          <view class="plan-header">
+            <view>
+              <view class="plan-title">{{plan.title}}</view>
+              <view class="plan-subtitle">第 {{plan.currentDay}} / {{plan.totalDays}} 天</view>
+            </view>
+            <view class="tag tag-primary">今日计划</view>
+          </view>
+
+          <view class="task-single {{plan.tasks[0].checked ? 'task-done' : ''}}">
+            <view class="task-main">
+              <view class="task-points">奖励 {{plan.tasks[0].points}} 积分</view>
+            </view>
+            <view class="task-actions">
+              <button
+                wx:if="{{plan.tasks[0].checked && plan.tasks[0].checkinId}}"
+                class="task-btn btn-undo"
+                data-checkin-id="{{plan.tasks[0].checkinId}}"
+                bindtap="handleUndoCheckin"
+              >撤销</button>
+              <button
+                wx:elif="{{plan.tasks[0].checked}}"
+                class="task-btn btn-disabled"
+                disabled
+              >已完成</button>
+              <button
+                wx:else
+                class="task-btn btn-primary"
+                disabled="{{checkingTaskId === plan.tasks[0].id}}"
+                data-plan-id="{{plan.id}}"
+                data-task-id="{{plan.tasks[0].id}}"
+                bindtap="handleCheckin"
+              >{{checkingTaskId === plan.tasks[0].id ? '提交中' : '去打卡'}}</button>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view wx:elif="{{todayData}}" class="empty-state">
+      <view>今天还没有可打卡的计划</view>
+      <button class="btn-primary empty-btn" bindtap="goCreatePlan">去创建计划</button>
+    </view>
+  </block>
+</view>

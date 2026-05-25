@@ -1,0 +1,62 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading-state">加载计划详情中...</view>
+
+  <block wx:elif="{{detail}}">
+    <view class="card header-card">
+      <view class="detail-top">
+        <view>
+          <view class="plan-title">{{detail.title}}</view>
+          <view class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
+        </view>
+        <view class="mini-bear">
+          <image class="bear-art" src="/assets/bears/bubu-zombie.jpeg" mode="aspectFill" />
+        </view>
+      </view>
+      <view class="summary-row">
+        <view class="summary-item">
+          <view class="summary-num">{{detail.currentDay}}</view>
+          <view class="summary-label">当前天数</view>
+        </view>
+        <view class="summary-item">
+          <view class="summary-num">{{detail.completedDays}}</view>
+          <view class="summary-label">完成天数</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">今日任务</view>
+      <view class="task-single {{detail.tasks[0].checkedToday ? 'task-done' : ''}}">
+        <view class="task-main">
+          <view class="task-points">奖励 {{detail.tasks[0].points}} 积分</view>
+        </view>
+        <view class="task-actions">
+          <button
+            wx:if="{{detail.tasks[0].checkedToday && detail.tasks[0].checkinId}}"
+            class="task-btn btn-undo"
+            data-checkin-id="{{detail.tasks[0].checkinId}}"
+            bindtap="handleUndoCheckin"
+          >撤销</button>
+          <button
+            wx:elif="{{detail.tasks[0].checkedToday}}"
+            class="task-btn btn-disabled"
+            disabled
+          >已完成</button>
+          <button
+            wx:else
+            class="task-btn btn-primary"
+            disabled="{{checkingTaskId === detail.tasks[0].id}}"
+            data-task-id="{{detail.tasks[0].id}}"
+            bindtap="handleCheckin"
+          >{{checkingTaskId === detail.tasks[0].id ? '提交中' : '去打卡'}}</button>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{detail.status !== 'completed'}}" class="card danger-zone">
+      <button class="btn-danger" bindtap="handleDeletePlan">删除计划</button>
+    </view>
+  </block>
+
+  <view wx:else class="empty-state">未找到计划详情</view>
+</view>

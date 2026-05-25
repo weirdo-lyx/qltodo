@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/plans/index",
+    "pages/plan-create/index",
+    "pages/plan-detail/index",
+    "pages/points/index",
+    "pages/partner/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff1dc",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "情侣打卡积分",
+    "backgroundColor": "#fff8ef",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#947b69",
+    "selectedColor": "#ff7466",
+    "backgroundColor": "#fffaf2",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/plans/index", "text": "计划" },
+      { "pagePath": "pages/points/index", "text": "积分" },
+      { "pagePath": "pages/profile/index", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

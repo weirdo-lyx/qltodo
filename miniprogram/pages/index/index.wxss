@@ -1,0 +1,124 @@
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 16%, rgba(255, 209, 107, 0.32) 0, rgba(255, 209, 107, 0) 30%),
+    linear-gradient(135deg, #fffaf2 0%, #f0f8ee 100%);
+}
+
+.home-bears {
+  flex: 0 0 230rpx;
+  width: 230rpx;
+  height: 132rpx;
+  overflow: hidden;
+  border: 6rpx solid rgba(255, 255, 255, 0.8);
+  border-radius: 18rpx;
+  box-shadow: 0 12rpx 24rpx rgba(116, 75, 45, 0.12);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24rpx;
+}
+
+.summary-card {
+  min-height: 220rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+}
+
+.summary-primary {
+  background:
+    radial-gradient(circle at 86% 22%, rgba(255, 255, 255, 0.34) 0, rgba(255, 255, 255, 0) 24%),
+    linear-gradient(135deg, #f1b75d 0%, #ff8b68 100%);
+  color: #ffffff;
+  box-shadow: 0 16rpx 34rpx rgba(241, 136, 92, 0.2);
+}
+
+.summary-label {
+  font-size: 26rpx;
+  opacity: 0.88;
+}
+
+.summary-value {
+  margin-top: 20rpx;
+  font-size: 56rpx;
+  font-weight: 700;
+}
+
+.summary-date {
+  margin-top: 16rpx;
+  color: #947b69;
+  font-size: 24rpx;
+}
+
+.plan-card {
+  margin-top: 24rpx;
+}
+
+.plan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.plan-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #4a3528;
+}
+
+.plan-subtitle {
+  margin-top: 8rpx;
+  color: #947b69;
+  font-size: 24rpx;
+}
+
+.task-single,
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin-top: 16rpx;
+  padding-top: 24rpx;
+  border-top: 2rpx solid rgba(116, 75, 45, 0.08);
+}
+
+.task-done {
+  opacity: 0.56;
+}
+
+.task-main {
+  flex: 1;
+}
+
+.task-points {
+  font-size: 26rpx;
+  color: #947b69;
+}
+
+.task-btn {
+  min-width: 168rpx;
+  margin: 0;
+  padding: 18rpx 24rpx;
+  font-size: 26rpx;
+}
+
+.btn-undo {
+  background: #fff0da;
+  color: #8c5a2e;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  line-height: 1.4;
+}
+
+.empty-btn {
+  margin-top: 24rpx;
+}
