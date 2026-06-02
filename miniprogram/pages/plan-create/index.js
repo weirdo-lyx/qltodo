@@ -5,20 +5,20 @@ Page({
   data: {
     loading: false,
     title: '',
-    totalDays: '21',
-    points: '10',
+    points: 5,
+    pointOptions: [
+      { value: 5, label: '5 分' },
+      { value: 10, label: '10 分' },
+    ],
   },
 
   handleTitleChange(event) {
     this.setData({ title: event.detail.value });
   },
 
-  handleDaysChange(event) {
-    this.setData({ totalDays: event.detail.value });
-  },
-
-  handlePointsChange(event) {
-    this.setData({ points: event.detail.value });
+  handlePointsSelect(event) {
+    const { value } = event.currentTarget.dataset || {};
+    this.setData({ points: Number(value) });
   },
 
   async handleSubmit() {
@@ -27,7 +27,6 @@ Page({
     }
 
     const title = this.data.title.trim();
-    const totalDays = Number(this.data.totalDays);
     const points = Number(this.data.points);
 
     if (!title) {
@@ -35,19 +34,14 @@ Page({
       return;
     }
 
-    if (!totalDays || totalDays <= 0) {
-      showToast('计划天数需大于 0');
-      return;
-    }
-
-    if (Number.isNaN(points) || points < 0) {
-      showToast('请输入有效积分');
+    if (points !== 5 && points !== 10) {
+      showToast('请选择积分（5 或 10）');
       return;
     }
 
     this.setData({ loading: true });
     try {
-      await createPlan({ title, totalDays, points });
+      await createPlan({ title, points });
       showToast('创建成功', 'success');
       setTimeout(() => {
         wx.switchTab({ url: '/pages/plans/index' });

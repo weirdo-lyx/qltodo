@@ -30,7 +30,8 @@
           <view class="plan-header">
             <view>
               <view class="plan-title">{{plan.title}}</view>
-              <view class="plan-subtitle">第 {{plan.currentDay}} / {{plan.totalDays}} 天</view>
+              <view wx:if="{{plan.totalDays > 0}}" class="plan-subtitle">第 {{plan.currentDay}} / {{plan.totalDays}} 天</view>
+              <view wx:else class="plan-subtitle">每日持续 · 已打卡 {{plan.completedDays}} 天</view>
             </view>
             <view class="tag tag-primary">今日计划</view>
           </view>

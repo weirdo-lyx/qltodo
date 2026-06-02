@@ -6,14 +6,15 @@
       <view class="detail-top">
         <view>
           <view class="plan-title">{{detail.title}}</view>
-          <view class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
+          <view wx:if="{{detail.totalDays > 0}}" class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
+          <view wx:else class="plan-date">{{detail.startDate}} 起 · 每日持续</view>
         </view>
         <view class="mini-bear">
           <image class="bear-art" src="/assets/bears/bubu-zombie.jpeg" mode="aspectFill" />
         </view>
       </view>
       <view class="summary-row">
-        <view class="summary-item">
+        <view wx:if="{{detail.totalDays > 0}}" class="summary-item">
           <view class="summary-num">{{detail.currentDay}}</view>
           <view class="summary-label">当前天数</view>
         </view>

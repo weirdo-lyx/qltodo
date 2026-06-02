@@ -9,8 +9,19 @@
   <view class="card">
     <view class="section-title">计划信息</view>
     <input class="input" placeholder="请输入计划名称" value="{{title}}" bindinput="handleTitleChange" />
-    <input class="input form-gap" type="number" placeholder="计划天数" value="{{totalDays}}" bindinput="handleDaysChange" />
-    <input class="input form-gap" type="number" placeholder="每次打卡奖励积分" value="{{points}}" bindinput="handlePointsChange" />
+
+    <view class="form-gap points-block">
+      <view class="points-label">每次打卡奖励积分</view>
+      <view class="points-options">
+        <block wx:for="{{pointOptions}}" wx:key="value">
+          <view
+            class="point-option {{points === item.value ? 'point-option-active' : ''}}"
+            data-value="{{item.value}}"
+            bindtap="handlePointsSelect"
+          >{{item.label}}</view>
+        </block>
+      </view>
+    </view>
   </view>
 
   <button class="btn-primary submit-btn" bindtap="handleSubmit" loading="{{loading}}">提交创建</button>

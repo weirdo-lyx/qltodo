@@ -28,7 +28,8 @@
         <block wx:for="{{summary.plans}}" wx:key="id">
           <view class="plan-item">
             <view class="plan-title">{{item.title}}</view>
-            <view class="plan-meta">第 {{item.currentDay}} / {{item.totalDays}} 天，已完成 {{item.completedDays}} 天</view>
+            <view wx:if="{{item.totalDays > 0}}" class="plan-meta">第 {{item.currentDay}} / {{item.totalDays}} 天，已完成 {{item.completedDays}} 天</view>
+            <view wx:else class="plan-meta">每日持续，已打卡 {{item.completedDays}} 天</view>
           </view>
         </block>
       </view>
