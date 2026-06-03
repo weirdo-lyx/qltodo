@@ -89,7 +89,7 @@ Page({
 
     setToken(result.token);
     setUserInfo(userInfo);
-    showToast('登录成功', 'success');
+    showToast('欢迎回到布布小窝', 'success');
     setTimeout(() => {
       wx.switchTab({ url: '/pages/index/index' });
     }, 300);

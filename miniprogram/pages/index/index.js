@@ -12,7 +12,19 @@ Page({
   },
 
   onShow() {
+    this.updateTabBar();
     void this.loadToday();
+  },
+
+  updateTabBar() {
+    if (typeof this.getTabBar !== 'function') {
+      return;
+    }
+
+    const tabBar = this.getTabBar();
+    if (tabBar) {
+      tabBar.setData({ selected: 0 });
+    }
   },
 
   async loadToday() {
@@ -45,7 +57,7 @@ Page({
     this.setData({ checkingTaskId: Number(taskId) });
     try {
       const result = await checkin({ planId: Number(planId), taskId: Number(taskId) });
-      showToast(`打卡成功 +${result.pointsAwarded}分`, 'success');
+      showToast(`贴纸贴好 +${result.pointsAwarded}颗糖`, 'success');
       await this.loadToday();
     } catch (error) {
       console.error('checkin error', error);
@@ -59,14 +71,14 @@ Page({
       return;
     }
 
-    const confirmed = await showConfirm('确认撤销本次打卡？撤销后将扣除对应积分。');
+    const confirmed = await showConfirm('确认撤销这张布布贴纸？撤销后会扣除对应糖果。');
     if (!confirmed) {
       return;
     }
 
     try {
       await deleteCheckin(checkinId);
-      showToast('已撤销打卡', 'success');
+      showToast('已拿下这张贴纸', 'success');
       await this.loadToday();
     } catch (error) {
       console.error('undo checkin error', error);

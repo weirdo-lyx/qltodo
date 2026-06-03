@@ -10,21 +10,22 @@
     "pages/profile/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#fff1dc",
+    "navigationBarBackgroundColor": "#fff1db",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "情侣打卡积分",
-    "backgroundColor": "#fff8ef",
+    "navigationBarTitleText": "布布一二打卡",
+    "backgroundColor": "#fffaf3",
     "backgroundTextStyle": "light"
   },
   "tabBar": {
-    "color": "#947b69",
-    "selectedColor": "#ff7466",
-    "backgroundColor": "#fffaf2",
+    "custom": true,
+    "color": "#8d7467",
+    "selectedColor": "#ff6f68",
+    "backgroundColor": "#fffaf3",
     "borderStyle": "white",
     "list": [
-      { "pagePath": "pages/index/index", "text": "首页" },
-      { "pagePath": "pages/plans/index", "text": "计划" },
-      { "pagePath": "pages/points/index", "text": "积分" },
+      { "pagePath": "pages/index/index", "text": "今日" },
+      { "pagePath": "pages/plans/index", "text": "小窝" },
+      { "pagePath": "pages/points/index", "text": "糖罐" },
       { "pagePath": "pages/profile/index", "text": "我的" }
     ]
   },

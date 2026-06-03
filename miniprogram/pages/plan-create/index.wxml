@@ -1,17 +1,21 @@
 <view class="page">
-  <view class="card create-hero">
-    <view>
-      <view class="cozy-title">新建约定</view>
-      <view class="cozy-subtitle">给两个人的坚持起个可爱的名字。</view>
+  <view class="card create-hero bear-hero">
+    <view class="create-copy">
+      <view class="bear-chip">新贴纸</view>
+      <view class="cozy-title">新建布布约定</view>
+      <view class="cozy-subtitle">给两个人的坚持起个可爱的名字，再放进小窝。</view>
+    </view>
+    <view class="create-bear bear-frame">
+      <image class="bear-art" src="/assets/bears/391c197aa290ff3bb89ff56b4a13ed82.jpg" mode="aspectFit" />
     </view>
   </view>
 
   <view class="card">
-    <view class="section-title">计划信息</view>
-    <input class="input" placeholder="请输入计划名称" value="{{title}}" bindinput="handleTitleChange" />
-    <input class="input form-gap" type="number" placeholder="计划天数" value="{{totalDays}}" bindinput="handleDaysChange" />
-    <input class="input form-gap" type="number" placeholder="每次打卡奖励积分" value="{{points}}" bindinput="handlePointsChange" />
+    <view class="section-title">约定信息</view>
+    <input class="input" placeholder="请输入约定名称" value="{{title}}" bindinput="handleTitleChange" />
+    <input class="input form-gap" type="number" placeholder="约定天数" value="{{totalDays}}" bindinput="handleDaysChange" />
+    <input class="input form-gap" type="number" placeholder="每次打卡奖励糖果" value="{{points}}" bindinput="handlePointsChange" />
   </view>
 
-  <button class="btn-primary submit-btn" bindtap="handleSubmit" loading="{{loading}}">提交创建</button>
+  <button class="btn-primary submit-btn" bindtap="handleSubmit" loading="{{loading}}">放进小窝</button>
 </view>

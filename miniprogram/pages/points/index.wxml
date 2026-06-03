@@ -1,27 +1,31 @@
 <view class="page">
-  <view wx:if="{{loading}}" class="loading-state">加载积分数据中...</view>
+  <view wx:if="{{loading}}" class="loading-state">布布一二正在数糖果...</view>
 
   <block wx:else>
-    <view class="points-hero card">
-      <view>
-        <view class="cozy-title">积分罐罐</view>
-        <view class="cozy-subtitle">每一次完成，都是往罐子里放一颗糖。</view>
+    <view class="points-hero card bear-hero">
+      <view class="points-copy">
+        <view class="bear-chip">布布糖罐</view>
+        <view class="cozy-title">小糖果都进布布罐罐</view>
+        <view class="cozy-subtitle">每一次完成，都是往布布一二的罐子里放一颗糖。</view>
+      </view>
+      <view class="points-bear bear-frame">
+        <image class="bear-art" src="/assets/bears/2576ebd3f638696674dad516370ddd79.jpg" mode="aspectFit" />
       </view>
     </view>
 
     <view class="summary-grid">
-      <view class="card stat-card">
-        <view class="summary-label">总积分</view>
+      <view class="card stat-card stat-total">
+        <view class="summary-label">糖果总数</view>
         <view class="summary-value primary">{{userInfo ? userInfo.totalPoints : 0}}</view>
       </view>
-      <view class="card stat-card">
-        <view class="summary-label">今日积分</view>
+      <view class="card stat-card stat-today">
+        <view class="summary-label">今日入罐</view>
         <view class="summary-value">{{todayPoints}}</view>
       </view>
     </view>
 
     <view class="card log-card">
-      <view class="section-title">积分流水</view>
+      <view class="section-title">糖罐流水</view>
       <view wx:if="{{logs.length}}">
         <block wx:for="{{logs}}" wx:key="id">
           <view class="log-item">
@@ -31,12 +35,17 @@
             </view>
             <view class="log-right">
               <view class="log-change {{item.changePoints >= 0 ? 'primary' : 'danger'}}">{{item.changePoints >= 0 ? '+' : ''}}{{item.changePoints}}</view>
-              <view class="log-balance">余额 {{item.balanceAfter}}</view>
+              <view class="log-balance">罐里 {{item.balanceAfter}}</view>
             </view>
           </view>
         </block>
       </view>
-      <view wx:else class="empty-inline">暂时还没有积分流水</view>
+      <view wx:else class="empty-inline">
+        <view class="inline-bear bear-frame">
+          <image class="bear-art" src="/assets/bears/afc5d456d3f2f5375d501f53e6ef0f85.jpg" mode="aspectFit" />
+        </view>
+        <view>糖罐还空着，完成打卡后就会热闹起来。</view>
+      </view>
 
       <button wx:if="{{logs.length && logs.length < total}}" class="btn-secondary more-btn" bindtap="handleLoadMore" loading="{{loadingMore}}">加载更多</button>
     </view>

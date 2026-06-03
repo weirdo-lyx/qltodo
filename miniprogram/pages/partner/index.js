@@ -41,7 +41,7 @@ Page({
     try {
       const result = await createInvite();
       this.setData({ inviteCode: result.code, expiresAt: result.expiresAt });
-      showToast('绑定码已生成', 'success');
+      showToast('布布绑定码已生成', 'success');
     } catch (error) {
       console.error('create invite error', error);
     } finally {
@@ -63,7 +63,7 @@ Page({
     this.setData({ actionLoading: true });
     try {
       await bindPartner(code);
-      showToast('绑定成功', 'success');
+      showToast('小熊绑定成功', 'success');
       this.setData({ bindCode: '', inviteCode: '', expiresAt: '' });
       await this.loadSummary();
     } catch (error) {
@@ -73,7 +73,7 @@ Page({
   },
 
   async handleUnbind() {
-    const confirmed = await showConfirm('确认解绑对象吗？解绑后需要重新绑定。');
+    const confirmed = await showConfirm('确认解绑这只小熊吗？解绑后需要重新绑定。');
     if (!confirmed || this.data.actionLoading) {
       return;
     }
@@ -81,7 +81,7 @@ Page({
     this.setData({ actionLoading: true });
     try {
       await unbindPartner();
-      showToast('解绑成功', 'success');
+      showToast('小熊已解绑', 'success');
       this.setData({ inviteCode: '', expiresAt: '' });
       await this.loadSummary();
     } catch (error) {

@@ -1,19 +1,29 @@
 <view class="page login-page">
-  <view class="hero card">
+  <view class="hero card bear-hero">
     <view class="hero-copy">
-      <view class="hero-badge">甜甜打卡</view>
-      <view class="hero-title">情侣打卡积分</view>
-      <view class="hero-desc">一起打卡、一起攒积分、把每天的小坚持贴成甜甜的足迹。</view>
+      <view class="bear-chip">布布一二打卡局</view>
+      <view class="hero-title">和布布一二一起打卡</view>
+      <view class="hero-desc">把两个人的小坚持，贴成每天都想打开看的可爱记录。</view>
     </view>
-    <view class="hero-bears">
+    <view class="hero-bears bear-frame">
       <image class="bear-art" src="/assets/bears/bubu-yier-hi.jpeg" mode="aspectFill" />
     </view>
   </view>
 
+  <view class="sticker-row">
+    <view class="login-sticker bear-frame">
+      <image class="bear-art" src="/assets/bears/72ddba9eab32e8abcb3c565df7ef0734.jpg" mode="aspectFit" />
+    </view>
+    <view class="login-sticker bear-frame">
+      <image class="bear-art" src="/assets/bears/8acc28dfe40e7aa221dfb8cf838789e0.jpg" mode="aspectFit" />
+    </view>
+  </view>
+
   <view class="card action-card">
-    <button class="btn-primary login-btn" bindtap="handleMockLoginA" loading="{{loading}}">测试用户A登录</button>
-    <button class="btn-secondary login-btn" bindtap="handleMockLoginB" loading="{{loading}}">测试用户B登录</button>
+    <view class="section-title">选择一只小熊</view>
+    <button class="btn-primary login-btn" bindtap="handleMockLoginA" loading="{{loading}}">布布测试号登录</button>
+    <button class="btn-secondary login-btn" bindtap="handleMockLoginB" loading="{{loading}}">一二测试号登录</button>
     <button class="btn-secondary login-btn" bindtap="handleWxLogin" loading="{{loading}}">微信登录</button>
-    <view class="login-tip">已保留 mock 登录，方便测试两个人绑定流程。</view>
+    <view class="login-tip">mock 登录保留着，方便测试两个人绑定流程。</view>
   </view>
 </view>

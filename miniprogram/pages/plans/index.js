@@ -14,7 +14,19 @@ Page({
   },
 
   onShow() {
+    this.updateTabBar();
     void this.loadPlans();
+  },
+
+  updateTabBar() {
+    if (typeof this.getTabBar !== 'function') {
+      return;
+    }
+
+    const tabBar = this.getTabBar();
+    if (tabBar) {
+      tabBar.setData({ selected: 1 });
+    }
   },
 
   async loadPlans() {
@@ -48,14 +60,14 @@ Page({
       return;
     }
 
-    const confirmed = await showConfirm('确认删除此计划？删除后不可恢复。');
+    const confirmed = await showConfirm('确认删除这个布布约定？删除后不可恢复。');
     if (!confirmed) {
       return;
     }
 
     try {
       await deletePlan(id);
-      showToast('计划已删除', 'success');
+      showToast('约定已删除', 'success');
       await this.loadPlans();
     } catch (error) {
       console.error('delete plan error', error);

@@ -1,29 +1,34 @@
 <view class="page">
-  <view wx:if="{{loading}}" class="loading-state">加载对象信息中...</view>
+  <view wx:if="{{loading}}" class="loading-state">布布一二正在找另一只小熊...</view>
 
   <block wx:elif="{{summary && summary.partner}}">
-    <view class="card partner-hero">
-      <view class="section-title">对象信息</view>
-      <view class="partner-name">{{summary.partner.nickname}}</view>
-      <view class="info-row"><text class="muted">对象总积分</text><text>{{summary.partner.totalPoints}}</text></view>
-      <view class="info-row"><text class="muted">对象今日积分</text><text>{{summary.today ? summary.today.todayPoints : 0}}</text></view>
+    <view class="card partner-hero bear-hero">
+      <view class="partner-copy">
+        <view class="bear-chip">另一只小熊</view>
+        <view class="partner-name">{{summary.partner.nickname}}</view>
+        <view class="info-row"><text class="muted">糖果总数</text><text>{{summary.partner.totalPoints}}</text></view>
+        <view class="info-row"><text class="muted">今日入罐</text><text>{{summary.today ? summary.today.todayPoints : 0}}</text></view>
+      </view>
+      <view class="partner-bear bear-frame">
+        <image class="bear-art" src="/assets/bears/72ddba9eab32e8abcb3c565df7ef0734.jpg" mode="aspectFit" />
+      </view>
     </view>
 
     <view class="card">
-      <view class="section-title">对象今日打卡</view>
+      <view class="section-title">小熊今日贴纸</view>
       <view wx:if="{{summary.today && summary.today.checkins && summary.today.checkins.length}}">
         <block wx:for="{{summary.today.checkins}}" wx:key="createdAt">
           <view class="checkin-item">
             <view class="checkin-title">{{item.planTitle}} / {{item.taskTitle}}</view>
-            <view class="checkin-meta">+{{item.points}} 积分 / {{item.createdAt}}</view>
+            <view class="checkin-meta">+{{item.points}} 颗糖 / {{item.createdAt}}</view>
           </view>
         </block>
       </view>
-      <view wx:else class="empty-inline">今天还没有新的打卡记录</view>
+      <view wx:else class="empty-inline">今天还没有新的布布贴纸</view>
     </view>
 
     <view class="card">
-      <view class="section-title">对象进行中计划</view>
+      <view class="section-title">小熊进行中小窝</view>
       <view wx:if="{{summary.plans && summary.plans.length}}">
         <block wx:for="{{summary.plans}}" wx:key="id">
           <view class="plan-item">
@@ -32,16 +37,22 @@
           </view>
         </block>
       </view>
-      <view wx:else class="empty-inline">对象当前没有进行中的计划</view>
+      <view wx:else class="empty-inline">另一只小熊当前没有进行中的约定</view>
     </view>
 
-    <button class="btn-danger" bindtap="handleUnbind" loading="{{actionLoading}}">解绑对象</button>
+    <button class="btn-danger" bindtap="handleUnbind" loading="{{actionLoading}}">解绑小熊</button>
   </block>
 
   <block wx:else>
-    <view class="card partner-empty-hero">
-      <view class="cozy-title">找另一只小熊</view>
-      <view class="cozy-subtitle">生成绑定码或输入对方的绑定码，就能一起攒积分。</view>
+    <view class="card partner-empty-hero bear-hero">
+      <view class="partner-copy">
+        <view class="bear-chip">布布一二集合</view>
+        <view class="cozy-title">找另一只小熊</view>
+        <view class="cozy-subtitle">生成绑定码或输入对方的绑定码，就能一起攒糖果。</view>
+      </view>
+      <view class="partner-bear bear-frame">
+        <image class="bear-art" src="/assets/bears/bubu-yier-hi.jpeg" mode="aspectFill" />
+      </view>
     </view>
 
     <view class="card">

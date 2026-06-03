@@ -15,7 +15,19 @@ Page({
   },
 
   onShow() {
+    this.updateTabBar();
     void this.loadPageData();
+  },
+
+  updateTabBar() {
+    if (typeof this.getTabBar !== 'function') {
+      return;
+    }
+
+    const tabBar = this.getTabBar();
+    if (tabBar) {
+      tabBar.setData({ selected: 2 });
+    }
   },
 
   async loadPageData() {

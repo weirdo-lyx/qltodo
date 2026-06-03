@@ -43,7 +43,7 @@ Page({
     this.setData({ checkingTaskId: Number(taskId) });
     try {
       const result = await checkin({ planId: this.data.planId, taskId: Number(taskId) });
-      showToast(`打卡成功 +${result.pointsAwarded}分`, 'success');
+      showToast(`贴纸贴好 +${result.pointsAwarded}颗糖`, 'success');
       await this.loadDetail();
     } catch (error) {
       console.error('detail checkin error', error);
@@ -57,14 +57,14 @@ Page({
       return;
     }
 
-    const confirmed = await showConfirm('确认撤销本次打卡？撤销后将扣除对应积分。');
+    const confirmed = await showConfirm('确认撤销这张布布贴纸？撤销后会扣除对应糖果。');
     if (!confirmed) {
       return;
     }
 
     try {
       await deleteCheckin(checkinId);
-      showToast('已撤销打卡', 'success');
+      showToast('已拿下这张贴纸', 'success');
       await this.loadDetail();
     } catch (error) {
       console.error('undo checkin error', error);
@@ -72,14 +72,14 @@ Page({
   },
 
   async handleDeletePlan() {
-    const confirmed = await showConfirm('确认删除此计划？删除后不可恢复。');
+    const confirmed = await showConfirm('确认删除这个布布约定？删除后不可恢复。');
     if (!confirmed) {
       return;
     }
 
     try {
       await deletePlan(this.data.planId);
-      showToast('计划已删除', 'success');
+      showToast('约定已删除', 'success');
       setTimeout(() => {
         wx.navigateBack();
       }, 300);

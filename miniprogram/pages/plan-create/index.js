@@ -31,24 +31,24 @@ Page({
     const points = Number(this.data.points);
 
     if (!title) {
-      showToast('计划名不能为空');
+      showToast('约定名不能为空');
       return;
     }
 
     if (!totalDays || totalDays <= 0) {
-      showToast('计划天数需大于 0');
+      showToast('约定天数需大于 0');
       return;
     }
 
     if (Number.isNaN(points) || points < 0) {
-      showToast('请输入有效积分');
+      showToast('请输入有效糖果数');
       return;
     }
 
     this.setData({ loading: true });
     try {
       await createPlan({ title, totalDays, points });
-      showToast('创建成功', 'success');
+      showToast('布布约定创建成功', 'success');
       setTimeout(() => {
         wx.switchTab({ url: '/pages/plans/index' });
       }, 300);

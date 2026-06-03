@@ -1,15 +1,16 @@
 <view class="page">
-  <view wx:if="{{loading}}" class="loading-state">加载计划详情中...</view>
+  <view wx:if="{{loading}}" class="loading-state">布布一二正在找这张约定贴纸...</view>
 
   <block wx:elif="{{detail}}">
-    <view class="card header-card">
+    <view class="card header-card bear-hero">
       <view class="detail-top">
-        <view>
+        <view class="detail-copy">
+          <view class="bear-chip">布布约定</view>
           <view class="plan-title">{{detail.title}}</view>
           <view class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
         </view>
-        <view class="mini-bear">
-          <image class="bear-art" src="/assets/bears/bubu-zombie.jpeg" mode="aspectFill" />
+        <view class="mini-bear bear-frame">
+          <image class="bear-art" src="/assets/bears/45e089bff63823f34dd5493c839cf6d0.jpg" mode="aspectFit" />
         </view>
       </view>
       <view class="summary-row">
@@ -28,7 +29,7 @@
       <view class="section-title">今日任务</view>
       <view class="task-single {{detail.tasks[0].checkedToday ? 'task-done' : ''}}">
         <view class="task-main">
-          <view class="task-points">奖励 {{detail.tasks[0].points}} 积分</view>
+          <view class="task-points">完成奖励 {{detail.tasks[0].points}} 颗糖</view>
         </view>
         <view class="task-actions">
           <button
@@ -48,15 +49,20 @@
             disabled="{{checkingTaskId === detail.tasks[0].id}}"
             data-task-id="{{detail.tasks[0].id}}"
             bindtap="handleCheckin"
-          >{{checkingTaskId === detail.tasks[0].id ? '提交中' : '去打卡'}}</button>
+          >{{checkingTaskId === detail.tasks[0].id ? '贴贴中' : '贴上打卡'}}</button>
         </view>
       </view>
     </view>
 
     <view wx:if="{{detail.status !== 'completed'}}" class="card danger-zone">
-      <button class="btn-danger" bindtap="handleDeletePlan">删除计划</button>
+      <button class="btn-danger" bindtap="handleDeletePlan">删除约定</button>
     </view>
   </block>
 
-  <view wx:else class="empty-state">未找到计划详情</view>
+  <view wx:else class="empty-state">
+    <view class="empty-bear">
+      <image class="bear-art" src="/assets/bears/bubu-zombie.jpeg" mode="aspectFit" />
+    </view>
+    <view>未找到这张布布约定贴纸</view>
+  </view>
 </view>

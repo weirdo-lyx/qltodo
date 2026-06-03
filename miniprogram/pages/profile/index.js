@@ -8,7 +8,19 @@ Page({
   },
 
   onShow() {
+    this.updateTabBar();
     void this.loadUserInfo();
+  },
+
+  updateTabBar() {
+    if (typeof this.getTabBar !== 'function') {
+      return;
+    }
+
+    const tabBar = this.getTabBar();
+    if (tabBar) {
+      tabBar.setData({ selected: 3 });
+    }
   },
 
   async loadUserInfo() {

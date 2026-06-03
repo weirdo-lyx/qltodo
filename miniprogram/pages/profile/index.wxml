@@ -1,25 +1,32 @@
 <view class="page">
-  <view wx:if="{{loading}}" class="loading-state">加载个人信息中...</view>
+  <view wx:if="{{loading}}" class="loading-state">布布一二正在整理我的小档案...</view>
 
   <block wx:elif="{{userInfo}}">
-    <view class="card profile-card">
-      <view class="profile-bears">
+    <view class="card profile-card bear-hero">
+      <view class="profile-bears bear-frame">
         <image class="bear-art" src="/assets/bears/bubu-hoodie.jpeg" mode="aspectFill" />
       </view>
+      <view class="bear-chip">我的布布档案</view>
       <view class="avatar-wrap">
         <image wx:if="{{userInfo.avatarUrl}}" class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
         <view wx:else class="avatar placeholder">我</view>
       </view>
       <view class="nickname">{{userInfo.nickname}}</view>
-      <view class="points">总积分 {{userInfo.totalPoints}}</view>
-      <view class="tag {{userInfo.hasPartner ? 'tag-primary' : 'tag-muted'}}">{{userInfo.hasPartner ? '已绑定对象' : '未绑定对象'}}</view>
+      <view class="points">糖果总数 {{userInfo.totalPoints}}</view>
+      <view class="tag {{userInfo.hasPartner ? 'tag-primary' : 'tag-muted'}}">{{userInfo.hasPartner ? '已找到另一只小熊' : '寻找另一只小熊'}}</view>
     </view>
 
     <view class="card action-card">
-      <button class="btn-secondary" bindtap="goPartnerPage">{{userInfo.hasPartner ? '查看对象' : '绑定对象'}}</button>
+      <view class="section-title">小熊设置</view>
+      <button class="btn-secondary" bindtap="goPartnerPage">{{userInfo.hasPartner ? '查看另一只小熊' : '绑定另一只小熊'}}</button>
       <button class="btn-danger action-btn" bindtap="logout">退出登录</button>
     </view>
   </block>
 
-  <view wx:else class="empty-state">暂时无法获取个人信息</view>
+  <view wx:else class="empty-state">
+    <view class="empty-bear">
+      <image class="bear-art" src="/assets/bears/bubu-hoodie.jpeg" mode="aspectFit" />
+    </view>
+    <view>暂时无法获取我的布布档案</view>
+  </view>
 </view>

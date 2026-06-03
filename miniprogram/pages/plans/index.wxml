@@ -1,13 +1,19 @@
 <view class="page">
-  <view class="top-action card">
-    <view>
-      <view class="cozy-title">计划小窝</view>
-      <view class="cozy-subtitle">把长期目标拆成每天都愿意完成的小块。</view>
+  <view class="top-action card bear-hero">
+    <view class="top-copy">
+      <view class="bear-chip">布布约定小窝</view>
+      <view class="cozy-title">把约定放进小窝</view>
+      <view class="cozy-subtitle">长期目标也可以拆成布布一二每天愿意完成的小块。</view>
     </view>
-    <button class="btn-primary" bindtap="goCreatePlan">创建计划</button>
+    <view class="top-side">
+      <view class="top-bears bear-frame">
+        <image class="bear-art" src="/assets/bears/8acc28dfe40e7aa221dfb8cf838789e0.jpg" mode="aspectFit" />
+      </view>
+      <button class="btn-primary" bindtap="goCreatePlan">新建约定</button>
+    </view>
   </view>
 
-  <view wx:if="{{loading}}" class="loading-state">加载计划中...</view>
+  <view wx:if="{{loading}}" class="loading-state">布布一二正在整理约定贴纸...</view>
 
   <view wx:elif="{{plans.length}}">
     <block wx:for="{{plans}}" wx:key="id">
@@ -29,7 +35,10 @@
   </view>
 
   <view wx:else class="empty-state">
-    <view>还没有计划，先创建一个属于你们的打卡目标吧。</view>
-    <button class="btn-primary empty-btn" bindtap="goCreatePlan">去创建计划</button>
+    <view class="empty-bear">
+      <image class="bear-art" src="/assets/bears/72ddba9eab32e8abcb3c565df7ef0734.jpg" mode="aspectFit" />
+    </view>
+    <view>还没有约定，先创建一个属于你们的布布目标吧。</view>
+    <button class="btn-primary empty-btn" bindtap="goCreatePlan">去创建小约定</button>
   </view>
 </view>
