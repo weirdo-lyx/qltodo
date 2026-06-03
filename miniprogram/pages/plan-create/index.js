@@ -5,7 +5,6 @@ Page({
   data: {
     loading: false,
     title: '',
-    totalDays: '',
     points: 5,
     pointOptions: [
       { value: 5, label: '5 分' },
@@ -15,14 +14,6 @@ Page({
 
   handleTitleChange(event) {
     this.setData({ title: event.detail.value });
-  },
-
-  handleDaysChange(event) {
-    this.setData({ totalDays: event.detail.value });
-  },
-
-  handlePointsChange(event) {
-    this.setData({ points: event.detail.value });
   },
 
   handlePointsSelect(event) {
@@ -36,16 +27,10 @@ Page({
     }
 
     const title = this.data.title.trim();
-    const totalDays = Number(this.data.totalDays);
     const points = Number(this.data.points);
 
     if (!title) {
       showToast('约定名不能为空');
-      return;
-    }
-
-    if (!totalDays || totalDays <= 0) {
-      showToast('约定天数需大于 0');
       return;
     }
 
@@ -56,7 +41,7 @@ Page({
 
     this.setData({ loading: true });
     try {
-      await createPlan({ title, totalDays, points });
+      await createPlan({ title, points });
       showToast('布布约定创建成功', 'success');
       setTimeout(() => {
         wx.switchTab({ url: '/pages/plans/index' });

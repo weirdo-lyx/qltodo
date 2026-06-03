@@ -3,7 +3,7 @@
     <view class="top-copy">
       <view class="bear-chip">布布约定小窝</view>
       <view class="cozy-title">把约定放进小窝</view>
-      <view class="cozy-subtitle">长期目标也可以拆成布布一二每天愿意完成的小块。</view>
+      <view class="cozy-subtitle">每天完成一个小目标，和布布一二一起坚持。</view>
     </view>
     <view class="top-side">
       <view class="top-bears bear-frame">
@@ -22,11 +22,7 @@
           <view class="plan-title">{{item.title}}</view>
           <view class="tag {{item.status === 'active' ? 'tag-primary' : 'tag-muted'}}">{{item.statusText}}</view>
         </view>
-        <view wx:if="{{item.totalDays > 0}}" class="plan-info" data-id="{{item.id}}" bindtap="goDetail">第 {{item.currentDay}} / {{item.totalDays}} 天</view>
-        <view wx:else class="plan-info" data-id="{{item.id}}" bindtap="goDetail">每日持续 · 已打卡 {{item.completedDays}} 天</view>
-        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">已积攒 {{item.completedDays}} 天</view>
-        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">开始日期：{{item.startDate}}</view>
-        <view wx:if="{{item.totalDays > 0}}" class="plan-info" data-id="{{item.id}}" bindtap="goDetail">结束日期：{{item.endDate}}</view>
+
         <!-- 删除功能暂时隐藏，等待后端修复 DELETE 接口 -->
         <!-- <view wx:if="{{item.status !== 'completed'}}" class="plan-actions">
           <button class="btn-danger btn-sm" data-id="{{item.id}}" catchtap="handleDeletePlan">删除</button>

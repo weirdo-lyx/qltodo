@@ -13,7 +13,6 @@
   <view class="card">
     <view class="section-title">约定信息</view>
     <input class="input" placeholder="请输入约定名称" value="{{title}}" bindinput="handleTitleChange" />
-    <input class="input form-gap" type="number" placeholder="约定天数" value="{{totalDays}}" bindinput="handleDaysChange" />
     
     <view class="form-gap points-block">
       <view class="points-label">每次打卡奖励糖果</view>
