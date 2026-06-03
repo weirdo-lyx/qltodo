@@ -1,4 +1,4 @@
-﻿import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from '../config';
 import { clearLogin, getToken } from '../utils/token';
 import { showToast } from '../utils/toast';
 
@@ -47,7 +47,7 @@ export function request(options) {
 
         if (!body) {
           if (options.showError !== false) {
-            showToast('鏈嶅姟寮傚父');
+            showToast('服务异常');
           }
           reject(new Error('Empty response body'));
           return;
@@ -60,11 +60,11 @@ export function request(options) {
 
         if (options.showError !== false) {
           const errorMessages = {
-            40001: '浠婃棩宸叉墦鍗?,
-            40100: '鐧诲綍宸茶繃鏈燂紝璇烽噸鏂扮櫥褰?,
-            40101: '鐧诲綍宸插け鏁堬紝璇烽噸鏂扮櫥褰?,
+            40001: '今日已打卡',
+            40100: '登录已过期，请重新登录',
+            40101: '登录已失效，请重新登录',
           };
-          showToast(errorMessages[body.code] || body.message || '璇锋眰澶辫触');
+          showToast(errorMessages[body.code] || body.message || '请求失败');
         }
 
         if (body.code === 40100 || body.code === 40101) {
@@ -75,7 +75,7 @@ export function request(options) {
       },
       fail: (error) => {
         if (options.showError !== false) {
-          showToast('缃戠粶閿欒');
+          showToast('网络错误');
         }
         reject(error);
       },
