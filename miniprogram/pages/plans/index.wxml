@@ -22,10 +22,11 @@
           <view class="plan-title">{{item.title}}</view>
           <view class="tag {{item.status === 'active' ? 'tag-primary' : 'tag-muted'}}">{{item.statusText}}</view>
         </view>
-        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">第 {{item.currentDay}} / {{item.totalDays}} 天</view>
-        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">已完成 {{item.completedDays}} 天</view>
+        <view wx:if="{{item.totalDays > 0}}" class="plan-info" data-id="{{item.id}}" bindtap="goDetail">第 {{item.currentDay}} / {{item.totalDays}} 天</view>
+        <view wx:else class="plan-info" data-id="{{item.id}}" bindtap="goDetail">每日持续 · 已打卡 {{item.completedDays}} 天</view>
+        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">已积攒 {{item.completedDays}} 天</view>
         <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">开始日期：{{item.startDate}}</view>
-        <view class="plan-info" data-id="{{item.id}}" bindtap="goDetail">结束日期：{{item.endDate}}</view>
+        <view wx:if="{{item.totalDays > 0}}" class="plan-info" data-id="{{item.id}}" bindtap="goDetail">结束日期：{{item.endDate}}</view>
         <!-- 删除功能暂时隐藏，等待后端修复 DELETE 接口 -->
         <!-- <view wx:if="{{item.status !== 'completed'}}" class="plan-actions">
           <button class="btn-danger btn-sm" data-id="{{item.id}}" catchtap="handleDeletePlan">删除</button>

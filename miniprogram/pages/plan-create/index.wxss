@@ -20,6 +20,39 @@
   margin-top: 20rpx;
 }
 
+.points-block {
+  margin-top: 20rpx;
+}
+
+.points-label {
+  margin-bottom: 16rpx;
+  color: #947b69;
+  font-size: 26rpx;
+}
+
+.points-options {
+  display: flex;
+  gap: 20rpx;
+}
+
+.point-option {
+  flex: 1;
+  padding: 24rpx 0;
+  text-align: center;
+  background: #fffaf2;
+  border: 2rpx solid rgba(116, 75, 45, 0.1);
+  border-radius: 16rpx;
+  color: #947b69;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.point-option-active {
+  background: linear-gradient(135deg, #ff9a76 0%, #ff7466 100%);
+  border-color: transparent;
+  color: #ffffff;
+}
+
 .submit-btn {
   margin-top: 24rpx;
 }

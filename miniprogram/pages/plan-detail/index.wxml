@@ -7,14 +7,15 @@
         <view class="detail-copy">
           <view class="bear-chip">布布约定</view>
           <view class="plan-title">{{detail.title}}</view>
-          <view class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
+          <view wx:if="{{detail.totalDays > 0}}" class="plan-date">{{detail.startDate}} - {{detail.endDate}}</view>
+          <view wx:else class="plan-date">{{detail.startDate}} 起 · 每日持续</view>
         </view>
         <view class="mini-bear bear-frame">
           <image class="bear-art" src="/assets/bears/45e089bff63823f34dd5493c839cf6d0.jpg" mode="aspectFit" />
         </view>
       </view>
       <view class="summary-row">
-        <view class="summary-item">
+        <view wx:if="{{detail.totalDays > 0}}" class="summary-item">
           <view class="summary-num">{{detail.currentDay}}</view>
           <view class="summary-label">当前天数</view>
         </view>

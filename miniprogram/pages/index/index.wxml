@@ -32,7 +32,8 @@
           <view class="plan-header">
             <view>
               <view class="plan-title">{{plan.title}}</view>
-              <view class="plan-subtitle">第 {{plan.currentDay}} / {{plan.totalDays}} 天</view>
+              <view wx:if="{{plan.totalDays > 0}}" class="plan-subtitle">第 {{plan.currentDay}} / {{plan.totalDays}} 天</view>
+              <view wx:else class="plan-subtitle">每日持续 · 已打卡 {{plan.completedDays}} 天</view>
             </view>
             <view class="tag tag-primary">布布任务</view>
           </view>
@@ -57,7 +58,6 @@
                 wx:else
                 class="task-btn btn-primary"
                 disabled="{{checkingTaskId === plan.tasks[0].id}}"
-                data-plan-id="{{plan.id}}"
                 data-task-id="{{plan.tasks[0].id}}"
                 bindtap="handleCheckin"
               >{{checkingTaskId === plan.tasks[0].id ? '贴贴中' : '贴上打卡'}}</button>
@@ -67,12 +67,12 @@
       </block>
     </view>
 
-    <view wx:elif="{{todayData}}" class="empty-state">
+    <view wx:else class="empty-state">
       <view class="empty-bear">
-        <image class="bear-art" src="/assets/bears/8acc28dfe40e7aa221dfb8cf838789e0.jpg" mode="aspectFit" />
+        <image class="bear-art" src="/assets/bears/bubu-yier-hi.jpeg" mode="aspectFit" />
       </view>
-      <view>今天还没有可打卡的布布任务</view>
-      <button class="btn-primary empty-btn" bindtap="goCreatePlan">去建一个小约定</button>
+      <view>今天还没有约定哦，去创建一个吧～</view>
+      <button class="btn-primary empty-btn" bindtap="goToCreate">新建约定</button>
     </view>
   </block>
 </view>

@@ -5,8 +5,12 @@ Page({
   data: {
     loading: false,
     title: '',
-    totalDays: '21',
-    points: '10',
+    totalDays: '',
+    points: 5,
+    pointOptions: [
+      { value: 5, label: '5 分' },
+      { value: 10, label: '10 分' },
+    ],
   },
 
   handleTitleChange(event) {
@@ -19,6 +23,11 @@ Page({
 
   handlePointsChange(event) {
     this.setData({ points: event.detail.value });
+  },
+
+  handlePointsSelect(event) {
+    const { value } = event.currentTarget.dataset || {};
+    this.setData({ points: Number(value) });
   },
 
   async handleSubmit() {
