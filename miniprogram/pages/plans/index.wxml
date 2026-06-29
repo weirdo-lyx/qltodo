@@ -23,10 +23,9 @@
           <view class="tag {{item.status === 'active' ? 'tag-primary' : 'tag-muted'}}">{{item.statusText}}</view>
         </view>
 
-        <!-- 删除功能暂时隐藏，等待后端修复 DELETE 接口 -->
-        <!-- <view wx:if="{{item.status !== 'completed'}}" class="plan-actions">
+        <view class="plan-actions">
           <button class="btn-danger btn-sm" data-id="{{item.id}}" catchtap="handleDeletePlan">删除</button>
-        </view> -->
+        </view>
       </view>
     </block>
   </view>

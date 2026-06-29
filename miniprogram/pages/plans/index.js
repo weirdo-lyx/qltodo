@@ -33,7 +33,9 @@ Page({
     this.setData({ loading: true });
     try {
       const plans = await getPlans();
-      const planCards = plans.map((plan) => ({
+      // 只显示进行中的计划，已完成的隐藏
+      const activePlans = plans.filter((plan) => plan.status === 'active');
+      const planCards = activePlans.map((plan) => ({
         ...plan,
         statusText: statusMap[plan.status] || plan.status || '未知',
       }));
